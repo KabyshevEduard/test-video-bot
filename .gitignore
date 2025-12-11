@@ -1,0 +1,6 @@
+/pg_data/
+/.venv/
+/.env
+/videos.json
+/__pycache__
+.DS_Store

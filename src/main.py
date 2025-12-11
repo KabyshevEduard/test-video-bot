@@ -27,14 +27,18 @@ async def main_handler(message: Message):
     '''
     Handle all others messages
     '''
-    sql_query = get_llm_answer(llm, message.text)
-    clear_sql = re.sub(r'\n', ' ', sql_query)
-    record_list = await execute_sql(clear_sql[7:-3])
-    record = record_list[0].values()
-    answer = None
-    for val in record:
-        answer = str(val)
-    await message.answer(answer)
+    try:
+        sql_query = get_llm_answer(llm, message.text)
+        clear_sql = re.sub(r'\n', ' ', sql_query)
+        record_list = await execute_sql(clear_sql[7:-3])
+        record = record_list[0].values()
+        answer = None
+        for val in record:
+            answer = str(val)
+        await message.answer(answer)
+    except Exception as e:
+        logging.error(e)
+        await message.answer('Видимо, что-то пошло не так')
 
 
 async def main():

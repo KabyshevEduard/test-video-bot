@@ -85,3 +85,4 @@ def get_llm_answer(llm: LLM, query: str):
 
     sql_query = llm.invoke(PROMPT)
     return sql_query
+

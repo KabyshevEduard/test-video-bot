@@ -6,7 +6,8 @@ import sys
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 from src.services.llm_service import LLM, get_llm_answer
-#
+from src.dao.dao import execute_sql
+import re
 
 
 dp = Dispatcher()
@@ -27,6 +28,8 @@ async def main_handler(message: Message):
     Handle all others messages
     '''
     #sql_query = get_llm_answer(message.text)
+    #clear_sql = re.sub(r'\n', ' ', sql_query)
+    #record_list = await execute_sql(clear_sql[7:-3])
     await message.answer('Хороший вопрос')
 
 

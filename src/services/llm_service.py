@@ -8,9 +8,9 @@ import requests
 
 
 class LLM:
-    def __init__(self, model='gpt-oss-120b'):
+    def __init__(self, model='nex-agi/deepseek-v3.1-nex-n1:free'):
         self.model = model
-        self.URL = "https://api.scaleway.ai/4504e593-8265-4652-b056-edcd96fed2d1/v1/chat/completions"
+        self.URL = "https://openrouter.ai/api/v1/chat/completions"
         self.HEADERS = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {settings.LLM_TOKEN}"
